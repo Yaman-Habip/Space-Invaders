@@ -18,7 +18,7 @@ public class Boba {
 
     public boolean move(Boba b, Boba b1, double i){
         ypos += i;
-        if (! (b.xpos >= 800 && b1.xpos <= 50)) {
+/*        if (! (b.xpos >= 800 && b1.xpos <= 50)) {
             if (b.xpos >= 800) {
                 xpos -= 1.5;
                 most_recent = false;
@@ -30,7 +30,7 @@ public class Boba {
             if (b1.xpos <= 50) {
                 most_recent = true;
             }
-        }
+        }*/
         build_rect();
         if (ypos >= 550) {
             return false;

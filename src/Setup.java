@@ -29,6 +29,7 @@ public class Setup implements Runnable, KeyListener {
 
     public Image ship;
     public Image enemy;
+    public Image enemy;
     public Image bullet;
     public Image background;
     public Image game_over;
@@ -50,6 +51,7 @@ public class Setup implements Runnable, KeyListener {
 
         ship = Toolkit.getDefaultToolkit().getImage("TransparentCupBoba.png");
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
+        boba = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
         background = Toolkit.getDefaultToolkit().getImage("PixelMountain.jpg");
         game_over = Toolkit.getDefaultToolkit().getImage("game_over.jpeg");
