@@ -293,6 +293,7 @@ public class Setup implements Runnable, KeyListener {
         g.setFont(new Font("arial", Font.PLAIN, 20));
         g.drawString("Score: " + score, 800, 650);
         g.drawString("High Score: " + high_score, 800, 675);
+        g.drawString("Boba Collected: " + boba_collected, 800, 625);
 
         g.dispose();
         bufferStrategy.show();
