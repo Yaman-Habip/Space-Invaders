@@ -27,7 +27,7 @@ public class Setup implements Runnable, KeyListener {
 
     public BufferStrategy bufferStrategy;
 
-    public Image ship;
+    public Image cup;
     public Image enemy;
     public Image boba;
     public Image bullet;
@@ -51,9 +51,9 @@ public class Setup implements Runnable, KeyListener {
     public Setup() {
         setUpGraphics();
 
-        ship = Toolkit.getDefaultToolkit().getImage("TransparentCupBoba.png");
+        cup = Toolkit.getDefaultToolkit().getImage("TransparentCupBoba.png");
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
-        boba = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
+        boba = Toolkit.getDefaultToolkit().getImage("Boba.png");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
         background = Toolkit.getDefaultToolkit().getImage("PixelMountain.jpg");
         game_over = Toolkit.getDefaultToolkit().getImage("game_over.jpeg");
@@ -248,7 +248,7 @@ public class Setup implements Runnable, KeyListener {
         Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
         g.clearRect(0, 0, WIDTH, HEIGHT);
         g.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
-        g.drawImage(ship, me.xpos, me.ypos, 50, 50, null);
+        g.drawImage(cup, me.xpos, me.ypos, 50, 50, null);
 
         for (int i = 0; i < all_bullets.size(); i++){
             g.drawImage(bullet, all_bullets.get(i).xpos, all_bullets.get(i).ypos, 10, 10, null);
