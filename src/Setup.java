@@ -175,14 +175,14 @@ public class Setup implements Runnable, KeyListener {
         for (ArrayList<BadGuy> i: all_badguys){
             for (BadGuy j: i){
                 if ( ! j.move(i.get(i.size() - 1), i.get(0), difficulty)){
-                    me.is_alive = false;
+//                    me.is_alive = false;
                 }
             }
         }
         for (ArrayList<Boba> i: all_bobas){
             for (Boba j: i){
                 if ( ! j.move(i.get(i.size() - 1), i.get(0), difficulty)){
-                    me.is_alive = false;
+//                    me.is_alive = false;
                 }
             }
         }
