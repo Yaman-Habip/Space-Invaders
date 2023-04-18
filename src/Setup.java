@@ -48,7 +48,7 @@ public class Setup implements Runnable, KeyListener {
         ship = Toolkit.getDefaultToolkit().getImage("good_guy.jpeg");
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
-        background = Toolkit.getDefaultToolkit().getImage("bground.jpeg");
+        background = Toolkit.getDefaultToolkit().getImage("PixelMountain.jpg");
         game_over = Toolkit.getDefaultToolkit().getImage("game_over.jpeg");
 
         for (int i = 0; i < 7; i ++){
