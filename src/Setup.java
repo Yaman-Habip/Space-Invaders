@@ -271,16 +271,23 @@ public class Setup implements Runnable, KeyListener {
             }
         }
 
-        if(boba_collected == 1){
+        if(boba_collected > 0 && boba_collected < 2){
             g.drawImage(onecup, me.xpos, me.ypos, 100, 100, null);
         }
-        if (boba_collected == 10) {
+        if (boba_collected > 10 && boba_collected < 11) {
             g.drawImage(tencup, me.xpos, me.ypos, 100, 100, null);
         }
 
-        if (boba_collected == 20) {
+        if (boba_collected > 20 && boba_collected < 21) {
             g.drawImage(twentycup, me.xpos, me.ypos, 100, 100, null);
         }
+
+        if (boba_collected > 40 && boba_collected < 41) {
+            g.drawImage(fortycup, me.xpos, me.ypos, 100, 100, null);
+        }
+
+
+
 
         g.setColor(Color.red);
         g.setFont(new Font("arial", Font.PLAIN, 20));
