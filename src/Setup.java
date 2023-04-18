@@ -263,7 +263,7 @@ public class Setup implements Runnable, KeyListener {
         for (ArrayList<Boba> i: all_bobas){
             for (Boba j: i){
                 int y = (int) Math.round(j.ypos);
-                g.drawImage(enemy, j.xpos, y, 75,75,null);
+                g.drawImage(boba, j.xpos, y, 75,75,null);
             }
         }
 
