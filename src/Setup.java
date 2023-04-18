@@ -96,7 +96,7 @@ public class Setup implements Runnable, KeyListener {
                 pause(20);
                 state += 20;
                 if (state % 3000 == 0){
-                    if (game_state = "boba") {
+                    if (game_state == "boba") {
                         game_state = "space";
                     }else{
                         game_state = "boba";
