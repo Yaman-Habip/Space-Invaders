@@ -109,7 +109,7 @@ public class Setup implements Runnable, KeyListener {
 
     public void run() {
         while (true) {
-            while (me.is_alive) {
+            while (boba_collected <= 100) {
                 move();
                 check_intersections();
                 draw();
@@ -280,7 +280,7 @@ public class Setup implements Runnable, KeyListener {
             g.drawImage(twentycup, me.xpos, me.ypos, 100, 100, null);
         }else if (boba_collected >= 40 && boba_collected < 100){
             g.drawImage(fortycup, me.xpos, me.ypos, 100, 100, null);
-        }else if (boba_collected > 100) {
+        }else if (boba_collected >= 100) {
             g.drawImage(lidStraw, me.xpos, me.ypos, 100, 100, null);
         }
 
