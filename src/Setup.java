@@ -29,7 +29,7 @@ public class Setup implements Runnable, KeyListener {
 
     public Image ship;
     public Image enemy;
-    public Image enemy;
+    public Image boba;
     public Image bullet;
     public Image background;
     public Image game_over;
@@ -44,6 +44,7 @@ public class Setup implements Runnable, KeyListener {
 
     public String game_state = "Boba";
     public int state = 0;
+    public int boba_collected = 0;
 
 
     public Setup() {
@@ -273,6 +274,7 @@ public class Setup implements Runnable, KeyListener {
     }
 
     private void check_intersections() {
+        me.build_rect();
         ArrayList<Integer> bullets_to_remove = new ArrayList<Integer>();
         for (ArrayList<BadGuy> i : all_badguys) {
             ArrayList<Integer> badguys_to_remove = new ArrayList<>();
@@ -298,19 +300,14 @@ public class Setup implements Runnable, KeyListener {
         for (ArrayList<Boba> i : all_bobas) {
             ArrayList<Integer> bobas_to_remove = new ArrayList<>();
             for (Integer j = 0; j < i.size(); j++) {
-                for (Integer k = 0; k < all_bullets.size(); k++) {
                     try {
-                        if (i.get(j).rect.intersects(all_bullets.get(k).rect)) {
-                            if (!bullets_to_remove.contains(k)) {
-                                bullets_to_remove.add(k);
-                                score = score + 100;
-                            }
+                        if (i.get(j).rect.intersects(me.rect)){
                             if (!bobas_to_remove.contains(j)) {
                                 bobas_to_remove.add(j);
+                                boba_collected++;
                             }
                         }
                     } catch (NullPointerException ignored) {;}
-                }
             }
             for (int a : bobas_to_remove) {
                 i.remove(a);
