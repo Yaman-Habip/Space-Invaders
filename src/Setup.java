@@ -17,7 +17,9 @@ public class Setup implements Runnable, KeyListener {
     public int score = 0;
 
     public int high_score = 0;
+
     public boolean new_high_score = false;
+    
 
     public JFrame frame;
     public Canvas canvas;
