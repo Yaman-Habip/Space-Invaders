@@ -15,6 +15,7 @@ public class Setup implements Runnable, KeyListener {
     final int HEIGHT = 700;
 
     public int score = 0;
+
     public int high_score = 0;
     public boolean new_high_score = false;
 
