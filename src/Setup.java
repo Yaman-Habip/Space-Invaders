@@ -209,18 +209,13 @@ public class Setup implements Runnable, KeyListener {
             }
         }
     private void new_bobas(){
-        Random pick_a_number = new Random();
-        int random_number = pick_a_number.nextInt(3);
         Random pick_a_number2 = new Random();
-        int random_number2 = pick_a_number2.nextInt(20);
-        random_number2 = random_number2 + 40;
-        random_number ++;
-        all_bobas.remove(6);
+        int random_number2 = pick_a_number2.nextInt(200);
+        Random pick_a_number3 = new Random();
+        int random_number3 = pick_a_number3.nextInt(1000);
         all_bobas.add(0, new ArrayList<Boba>());
-        for (int i = 0; i < random_number; i++){
-            Boba k = new Boba(random_number2 + (i * 100), 20);
+            Boba k = new Boba(random_number3, random_number2);
             all_bobas.get(0).add(k);
-        }
     }
 
     private void game_over(){
@@ -263,7 +258,7 @@ public class Setup implements Runnable, KeyListener {
         for (ArrayList<Boba> i: all_bobas){
             for (Boba j: i){
                 int y = (int) Math.round(j.ypos);
-                g.drawImage(boba, j.xpos, y, 75,75,null);
+                g.drawImage(boba, j.xpos, y, 30,30,null);
             }
         }
 

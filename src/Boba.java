@@ -13,7 +13,7 @@ public class Boba {
 
     public void build_rect(){
         int y = (int) Math.round(ypos);
-        rect = new Rectangle(xpos, y, 75,75);
+        rect = new Rectangle(xpos, y, 30,30);
     }
 
     public boolean move(Boba b, Boba b1, double i){
