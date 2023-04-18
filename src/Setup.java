@@ -19,7 +19,7 @@ public class Setup implements Runnable, KeyListener {
     public int high_score = 0;
 
     public boolean new_high_score = false;
-    
+
 
     public JFrame frame;
     public Canvas canvas;
@@ -39,6 +39,8 @@ public class Setup implements Runnable, KeyListener {
     public ArrayList<ArrayList<BadGuy>> all_badguys = new ArrayList<ArrayList<BadGuy>>();
     public double difficulty = 1;
     public int up_difficulty = 8000;
+
+    public String game_state = "Boba";
 
     public Setup() {
         setUpGraphics();
