@@ -29,7 +29,7 @@ public class Setup implements Runnable, KeyListener {
 
     public Image ship;
     public Image enemy;
-    public Image enemy;
+    public Image boba;
     public Image bullet;
     public Image background;
     public Image game_over;
