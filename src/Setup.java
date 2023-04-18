@@ -5,6 +5,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.tools.Tool;
 import java.lang.NullPointerException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -33,7 +34,11 @@ public class Setup implements Runnable, KeyListener {
     public Image bullet;
     public Image background;
     public Image game_over;
-    public Image lidStraw; 
+    public Image lidStraw;
+    public Image OneCupBoba;
+    public Image TenCupBoba;
+    public Image TwentyCupBoba;
+    public Image FortyCupBoba;
 
     public GoodGuy me = new GoodGuy();
     public ArrayList<Bullet> all_bullets = new ArrayList<Bullet>();
@@ -51,7 +56,20 @@ public class Setup implements Runnable, KeyListener {
     public Setup() {
         setUpGraphics();
 
-        ship = Toolkit.getDefaultToolkit().getImage("TransparentCupBoba.png");
+
+        //Empty cup
+        ship = Toolkit.getDefaultToolkit().getImage("EmptyCupBoba.png");
+        //One boba in cup
+        OneCupBoba = Toolkit.getDefaultToolkit().getImage("OneCupBoba.png");
+        //10 boba
+        TenCupBoba = Toolkit.getDefaultToolkit().getImage("TenBobaCup.png");
+        //20 boba
+        TwentyCupBoba = Toolkit.getDefaultToolkit().getImage("TwentyCupBoba.png");
+        //40 boba
+        FortyCupBoba = Toolkit.getDefaultToolkit().getImage("FortyCupBoba.png");
+
+
+
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
         boba = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
