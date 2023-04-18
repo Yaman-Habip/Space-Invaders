@@ -66,7 +66,7 @@ public class Setup implements Runnable, KeyListener {
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
         background = Toolkit.getDefaultToolkit().getImage("PixelMountain.jpg");
         game_over = Toolkit.getDefaultToolkit().getImage("game_over.jpeg");
-        lidStraw = Toolkit.getDefaultToolkit().getImage("Lid&Straw.png");
+        lidStraw = Toolkit.getDefaultToolkit().getImage("FinalBoba.png");
 
         for (int i = 0; i < 7; i ++){
             all_badguys.add(new ArrayList<BadGuy>());
