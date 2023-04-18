@@ -48,7 +48,7 @@ public class Setup implements Runnable, KeyListener {
     public Setup() {
         setUpGraphics();
 
-        ship = Toolkit.getDefaultToolkit().getImage("CupBoba.jpg");
+        ship = Toolkit.getDefaultToolkit().getImage("CupBoba.png");
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
         background = Toolkit.getDefaultToolkit().getImage("PixelMountain.jpg");
