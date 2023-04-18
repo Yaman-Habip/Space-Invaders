@@ -37,6 +37,7 @@ public class Setup implements Runnable, KeyListener {
     public ArrayList<Bullet> all_bullets = new ArrayList<Bullet>();
 
     public ArrayList<ArrayList<BadGuy>> all_badguys = new ArrayList<ArrayList<BadGuy>>();
+    public ArrayList<ArrayList<Boba>> all_bobas = new ArrayList<ArrayList<Boba>>();
     public double difficulty = 1;
     public int up_difficulty = 8000;
 
@@ -56,6 +57,9 @@ public class Setup implements Runnable, KeyListener {
         for (int i = 0; i < 7; i ++){
             all_badguys.add(new ArrayList<BadGuy>());
         }
+        for (int i = 0; i < 7; i ++){
+            all_bobas.add(new ArrayList<Boba>());
+        }
 
         canvas.addKeyListener(this);
     }
@@ -66,9 +70,16 @@ public class Setup implements Runnable, KeyListener {
         for (ArrayList<BadGuy> i: all_badguys){
             i.clear();
         }
+        for (ArrayList<Boba> i: all_bobas){
+            i.clear();
+        }
         all_badguys.clear();
+        all_bobas.clear();
         for (int i = 0; i < 7; i ++){
             all_badguys.add(new ArrayList<BadGuy>());
+        }
+        for (int i = 0; i < 7; i ++){
+            all_bobas.add(new ArrayList<Boba>());
         }
         all_bullets.clear();
         me = new GoodGuy();
@@ -154,10 +165,22 @@ public class Setup implements Runnable, KeyListener {
                 }
             }
         }
+        for (ArrayList<Boba> i: all_bobas){
+            for (Boba j: i){
+                if ( ! j.move(i.get(i.size() - 1), i.get(0), difficulty)){
+                    me.is_alive = false;
+                }
+            }
+        }
         if (all_badguys.get(0).isEmpty()){
             new_badguys();
         } else if (all_badguys.get(0).get(0).ypos >= 100){
             new_badguys();
+        }
+        if (all_bobas.get(0).isEmpty()){
+            new_bobas();
+        } else if (all_bobas.get(0).get(0).ypos >= 100){
+            new_bobas();
         }
     }
 
@@ -180,6 +203,25 @@ public class Setup implements Runnable, KeyListener {
                 }
             }
         }
+    private void new_bobas(){
+        Random pick_a_number = new Random();
+        int random_number = pick_a_number.nextInt(9);
+        Random pick_a_number2 = new Random();
+        int random_number2 = pick_a_number2.nextInt(20);
+        random_number2 = random_number2 + 40;
+        random_number ++;
+        all_bobas.remove(6);
+        all_bobas.add(0, new ArrayList<Boba>());
+        for (int i = 0; i < random_number; i++){
+            if (random_number < 8) {
+                Boba k = new Boba(random_number2 + (i * 100), 20);
+                all_bobas.get(0).add(k);
+            } else{
+                Boba k = new Boba(50 + (i * 100), 20);
+                all_bobas.get(0).add(k);
+            }
+        }
+    }
 
     private void game_over(){
         Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
@@ -218,6 +260,12 @@ public class Setup implements Runnable, KeyListener {
                 g.drawImage(enemy, j.xpos, y, 75,75,null);
             }
         }
+        for (ArrayList<Boba> i: all_bobas){
+            for (Boba j: i){
+                int y = (int) Math.round(j.ypos);
+                g.drawImage(enemy, j.xpos, y, 75,75,null);
+            }
+        }
 
         g.setColor(Color.red);
         g.setFont(new Font("arial", Font.PLAIN, 20));
@@ -247,6 +295,27 @@ public class Setup implements Runnable, KeyListener {
                 }
             }
             for (int a : badguys_to_remove) {
+                i.remove(a);
+            }
+        }
+        for (ArrayList<Boba> i : all_bobas) {
+            ArrayList<Integer> bobas_to_remove = new ArrayList<>();
+            for (Integer j = 0; j < i.size(); j++) {
+                for (Integer k = 0; k < all_bullets.size(); k++) {
+                    try {
+                        if (i.get(j).rect.intersects(all_bullets.get(k).rect)) {
+                            if (!bullets_to_remove.contains(k)) {
+                                bullets_to_remove.add(k);
+                                score = score + 100;
+                            }
+                            if (!bobas_to_remove.contains(j)) {
+                                bobas_to_remove.add(j);
+                            }
+                        }
+                    } catch (NullPointerException ignored) {;}
+                }
+            }
+            for (int a : bobas_to_remove) {
                 i.remove(a);
             }
         }
