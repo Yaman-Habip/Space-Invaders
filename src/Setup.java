@@ -280,12 +280,14 @@ public class Setup implements Runnable, KeyListener {
             g.drawImage(twentycup, me.xpos, me.ypos, 100, 100, null);
         }else if (boba_collected > 40){
             g.drawImage(fortycup, me.xpos, me.ypos, 100, 100, null);
+        }else if (boba_collected > 100) {
+            g.drawImage(lidStraw, me.xpos, me.ypos, 100, 100, null);
         }
 
 
 
 
-        g.setColor(Color.red);
+            g.setColor(Color.red);
         g.setFont(new Font("arial", Font.PLAIN, 20));
         g.drawString("Score: " + score, 800, 650);
         g.drawString("High Score: " + high_score, 800, 675);
