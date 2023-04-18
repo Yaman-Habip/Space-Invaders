@@ -41,6 +41,8 @@ public class Setup implements Runnable, KeyListener {
     public int up_difficulty = 8000;
 
     public String game_state = "Boba";
+    public int state = 0;
+
 
     public Setup() {
         setUpGraphics();
@@ -92,6 +94,14 @@ public class Setup implements Runnable, KeyListener {
                     up_difficulty = up_difficulty + 6000;
                 }
                 pause(20);
+                state += 20;
+                if (state % 3000 == 0){
+                    if (game_state = "boba") {
+                        game_state = "space";
+                    }else{
+                        game_state = "boba";
+                    }
+                }
             }
             while (! me.is_alive) {
                 game_over();
