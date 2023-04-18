@@ -53,7 +53,7 @@ public class Setup implements Runnable, KeyListener {
 
         ship = Toolkit.getDefaultToolkit().getImage("TransparentCupBoba.png");
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
-        boba = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
+        boba = Toolkit.getDefaultToolkit().getImage("Boba.png");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
         background = Toolkit.getDefaultToolkit().getImage("PixelMountain.jpg");
         game_over = Toolkit.getDefaultToolkit().getImage("game_over.jpeg");
@@ -213,12 +213,12 @@ public class Setup implements Runnable, KeyListener {
         int random_number = pick_a_number.nextInt(3);
         Random pick_a_number2 = new Random();
         int random_number2 = pick_a_number2.nextInt(20);
-        random_number2 = random_number2 + 40;
+        random_number2 = random_number2 + ((int)Math.random()*200);
         random_number ++;
         all_bobas.remove(6);
         all_bobas.add(0, new ArrayList<Boba>());
         for (int i = 0; i < random_number; i++){
-            Boba k = new Boba(random_number2 + (i * 100), 20);
+            Boba k = new Boba(random_number2 + (i * 200), 20);
             all_bobas.get(0).add(k);
         }
     }
@@ -263,7 +263,7 @@ public class Setup implements Runnable, KeyListener {
         for (ArrayList<Boba> i: all_bobas){
             for (Boba j: i){
                 int y = (int) Math.round(j.ypos);
-                g.drawImage(enemy, j.xpos, y, 75,75,null);
+                g.drawImage(boba, j.xpos, y, 75,75,null);
             }
         }
 
