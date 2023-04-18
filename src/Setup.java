@@ -272,7 +272,7 @@ public class Setup implements Runnable, KeyListener {
         }
         if(boba_collected == 0) {
             g.drawImage(cup, me.xpos, me.ypos, 100, 100, null);
-        }else if(boba_collected > 0){
+        }else if(boba_collected > 0 && boba_collected < 10){
             g.drawImage(onecup, me.xpos, me.ypos, 100, 100, null);
         }else if (boba_collected > 10 && boba_collected < 20) {
             g.drawImage(tencup, me.xpos, me.ypos, 100, 100, null);
