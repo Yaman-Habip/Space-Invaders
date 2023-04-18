@@ -32,9 +32,6 @@ public class Boba {
             }
         }*/
         build_rect();
-        if (ypos >= 550) {
-            return false;
-        }
         return true;
     }
 }
