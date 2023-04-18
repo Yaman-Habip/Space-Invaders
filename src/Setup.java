@@ -205,7 +205,7 @@ public class Setup implements Runnable, KeyListener {
         }
     private void new_bobas(){
         Random pick_a_number = new Random();
-        int random_number = pick_a_number.nextInt(9);
+        int random_number = pick_a_number.nextInt(3);
         Random pick_a_number2 = new Random();
         int random_number2 = pick_a_number2.nextInt(20);
         random_number2 = random_number2 + 40;
@@ -213,13 +213,8 @@ public class Setup implements Runnable, KeyListener {
         all_bobas.remove(6);
         all_bobas.add(0, new ArrayList<Boba>());
         for (int i = 0; i < random_number; i++){
-            if (random_number < 8) {
-                Boba k = new Boba(random_number2 + (i * 100), 20);
-                all_bobas.get(0).add(k);
-            } else{
-                Boba k = new Boba(50 + (i * 100), 20);
-                all_bobas.get(0).add(k);
-            }
+            Boba k = new Boba(random_number2 + (i * 100), 20);
+            all_bobas.get(0).add(k);
         }
     }
 
