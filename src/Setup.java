@@ -33,7 +33,11 @@ public class Setup implements Runnable, KeyListener {
     public Image bullet;
     public Image background;
     public Image game_over;
-    public Image lidStraw; 
+    public Image lidStraw;
+    public Image onecup;
+    public Image tencup;
+    public Image twentycup;
+    public Image fortycup;
 
     public GoodGuy me = new GoodGuy();
     public ArrayList<Bullet> all_bullets = new ArrayList<Bullet>();
@@ -52,6 +56,11 @@ public class Setup implements Runnable, KeyListener {
         setUpGraphics();
 
         cup = Toolkit.getDefaultToolkit().getImage("TransparentCupBoba.png");
+        onecup = Toolkit.getDefaultToolkit().getImage("OneBobaCup.png");
+        tencup = Toolkit.getDefaultToolkit().getImage("TenBobaCup.png");
+        twentycup = Toolkit.getDefaultToolkit().getImage("TwentyCupBoba.png");
+        fortycup = Toolkit.getDefaultToolkit().getImage("FortyCupBoba.png");
+
         enemy = Toolkit.getDefaultToolkit().getImage("the_enemy.jpeg");
         boba = Toolkit.getDefaultToolkit().getImage("Boba.png");
         bullet = Toolkit.getDefaultToolkit().getImage("bullet.jpeg");
@@ -243,7 +252,7 @@ public class Setup implements Runnable, KeyListener {
         Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
         g.clearRect(0, 0, WIDTH, HEIGHT);
         g.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
-        g.drawImage(cup, me.xpos, me.ypos, 50, 50, null);
+        g.drawImage(cup, me.xpos, me.ypos, 100, 100, null);
 
         for (int i = 0; i < all_bullets.size(); i++){
             g.drawImage(bullet, all_bullets.get(i).xpos, all_bullets.get(i).ypos, 10, 10, null);
@@ -262,10 +271,22 @@ public class Setup implements Runnable, KeyListener {
             }
         }
 
+        if(boba_collected == 1){
+            g.drawImage(onecup, me.xpos, me.ypos, 100, 100, null);
+        }
+        if (boba_collected == 10) {
+            g.drawImage(tencup, me.xpos, me.ypos, 100, 100, null);
+        }
+
+        if (boba_collected == 20) {
+            g.drawImage(twentycup, me.xpos, me.ypos, 100, 100, null);
+        }
+
         g.setColor(Color.red);
         g.setFont(new Font("arial", Font.PLAIN, 20));
         g.drawString("Score: " + score, 800, 650);
         g.drawString("High Score: " + high_score, 800, 675);
+
         g.dispose();
         bufferStrategy.show();
     }
@@ -302,6 +323,7 @@ public class Setup implements Runnable, KeyListener {
                             if (!bobas_to_remove.contains(j)) {
                                 bobas_to_remove.add(j);
                                 boba_collected++;
+                                System.out.println(boba_collected);
                             }
                         }
                     } catch (NullPointerException ignored) {;}

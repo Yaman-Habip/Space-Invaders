@@ -6,7 +6,7 @@ public class GoodGuy {
     public Rectangle rect;
     public void build_rect(){
         int y = (int) Math.round(ypos);
-        rect = new Rectangle(xpos, y, 75,75);
+        rect = new Rectangle(xpos, y, 100,100);
     }
     public boolean is_alive = true;
 }
